@@ -3,7 +3,6 @@
 constexpr int LATTICE_X = 151; 
 constexpr int LATTICE_Y = 151;
 constexpr int LATTICE_Z = 201; // with sources from above and below for the cells 
-constexpr int NUMBER_ITERATIONS = 60; // to be optimised
 constexpr int NODES_PER_ELEM = 10; // number of nodes per element in Abaqus
 constexpr float CELL_DIAMETER = 0.02; // (in mm)
 
@@ -32,23 +31,7 @@ float Plane_intersection(float face[3][3],float x,float y,float z);
 void Initialize_lattice(char initial_lattice[LATTICE_X][LATTICE_Y][LATTICE_Z], short initial_age[LATTICE_X][LATTICE_Y][LATTICE_Z]);
 void Read_stimulus(std::vector<char>& stimulus_read, int number_elems);
 
-void Cell_differentiation(char cells_dif[LATTICE_X][LATTICE_Y][LATTICE_Z],short age_dif[LATTICE_X][LATTICE_Y][LATTICE_Z],std::vector<char>& stimulus_dif, 
-	std::vector<Point>& element_local_min,std::vector<Point>& element_local_max,int lattice_point_element[LATTICE_X][LATTICE_Y][LATTICE_Z]);
-void Cell_proliferation(char cells_prol[LATTICE_X][LATTICE_Y][LATTICE_Z], short age_prol[LATTICE_X][LATTICE_Y][LATTICE_Z],std::vector<Point>& element_local_min,
-	std::vector<Point>& element_local_max,int lattice_point_element[LATTICE_X][LATTICE_Y][LATTICE_Z], std::vector<char>& stimulus_prol);
-void Cell_mitosis(char cells_mitosis[LATTICE_X][LATTICE_Y][LATTICE_Z], int i1, int j1, int k1, int cellnumber,short age_mitosis[LATTICE_X][LATTICE_Y][LATTICE_Z]);
-void Cell_migration(char cells_migration[LATTICE_X][LATTICE_Y][LATTICE_Z], short age_migration[LATTICE_X][LATTICE_Y][LATTICE_Z], int lattice_points_element[LATTICE_X][LATTICE_Y][LATTICE_Z]);
-void Jump_migration(char cell_jump[LATTICE_X][LATTICE_Y][LATTICE_Z],int i_jump, int j_jump, int k_jump,short age_jump[LATTICE_X][LATTICE_Y][LATTICE_Z], 
-	int cell_number, int lattice_points_element[LATTICE_X][LATTICE_Y][LATTICE_Z]);
-
+void Lattice_stimulus (char lattice[LATTICE_X][LATTICE_Y][LATTICE_Z], int lattice_points_element[LATTICE_X][LATTICE_Y][LATTICE_Z], std::vector<char>& stimulus);
 float Compute_bone_volume(char objective_lattice[LATTICE_X][LATTICE_Y][LATTICE_Z]);
 void Write_text_output(float objective);
-
-void Update_model(char lattice[LATTICE_X][LATTICE_Y][LATTICE_Z],std::vector< std::vector<float> >& Young_modulus_prop, std::vector< std::vector<float> >& Poison_ratio_prop, 
-	int t_prop, std::vector<Point>& element_local_min, std::vector<Point>& element_local_max, int lattice_point_element[LATTICE_X][LATTICE_Y][LATTICE_Z]);
-void Cell_age(short age[LATTICE_X][LATTICE_Y][LATTICE_Z]);
-
-
-
-
 
