@@ -57,12 +57,12 @@ void Extremes_element(vector<Nodes>& extremes_element_nodes, vector<Point_abaqus
             }
         }
          
-//        cout<<"xmin: "<<xmin<<endl;
-//        cout<<"xmax: "<<xmax<<endl;       
-//        cout<<"ymin: "<<ymin<<endl;
-//        cout<<"ymax: "<<ymax<<endl;   
-//        cout<<"zmin: "<<zmin<<endl;
-//        cout<<"zmax: "<<zmax<<endl;   
+/*        cout<<"xmin: "<<xmin<<endl;
+        cout<<"xmax: "<<xmax<<endl;       
+        cout<<"ymin: "<<ymin<<endl;
+        cout<<"ymax: "<<ymax<<endl;   
+        cout<<"zmin: "<<zmin<<endl;
+        cout<<"zmax: "<<zmax<<endl; */
            
         extreme_min[elem].x=int(((xmin-Global_min_extreme[0])/CELL_DIAMETER)+0.5); 
         extreme_min[elem].y=int(((ymin-Global_min_extreme[1])/CELL_DIAMETER)+0.5);
@@ -71,13 +71,13 @@ void Extremes_element(vector<Nodes>& extremes_element_nodes, vector<Point_abaqus
         extreme_max[elem].y=int(((ymax-Global_min_extreme[1])/CELL_DIAMETER)+0.5);
         extreme_max[elem].z=int(((zmax-Global_min_extreme[2])/CELL_DIAMETER)+0.5);
          
-//        cout<<"element: "<<elem<<endl;
-//        cout<<"xmin cell: "<<extreme_min[elem].x<<endl;
-//        cout<<"xmax cell: "<<extreme_max[elem].x<<endl;
-//        cout<<"ymin cell: "<<extreme_min[elem].y<<endl;
-//        cout<<"ymax cell: "<<extreme_max[elem].y<<endl;
-//        cout<<"zmin cell: "<<extreme_min[elem].z<<endl;
-//        cout<<"zmax cell: "<<extreme_max[elem].z<<endl;
+/*        cout<<"element: "<<elem<<endl;
+        cout<<"xmin cell: "<<extreme_min[elem].x<<endl;
+        cout<<"xmax cell: "<<extreme_max[elem].x<<endl;
+        cout<<"ymin cell: "<<extreme_min[elem].y<<endl;
+        cout<<"ymax cell: "<<extreme_max[elem].y<<endl;
+        cout<<"zmin cell: "<<extreme_min[elem].z<<endl;
+        cout<<"zmax cell: "<<extreme_max[elem].z<<endl; */
 			
     }
 }

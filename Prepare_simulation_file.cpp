@@ -17,10 +17,8 @@ using namespace std;
 void Prepare_simulation_file(int number_elems)
 {
 	// Open files
-	system("del Cube_model.txt"); // remove previous model file (from previous simulation)
 	system("del cube.inp");
 	ofstream myfile, mytxtfile;
-	mytxtfile.open("Cube_model.txt"); // model file to be used in later iterations
 	myfile.open("cube.inp"); // initial simulation file
 	ifstream infile("Job-1.inp");
 	
@@ -29,23 +27,8 @@ void Prepare_simulation_file(int number_elems)
     getline(infile,line);
     while (line!="** Section: tissue") {
     	myfile<<line<<endl;
-    	mytxtfile<<line<<endl;
     	getline(infile,line);
     }
-	
-	// Write set & section descriptions (one set & section per element) into model file
-	int elem;
-	for (elem=0;elem<number_elems;elem++) {
-		ostringstream s1,s2;
-		s2<<"Elset_"<<elem+1;
-		string elemsetname=s2.str();
-		s1<<"material_"<<elem+1;
-		string materialname=s1.str();
-		mytxtfile << "*Elset, elset="<<elemsetname<<endl;
-		mytxtfile<<elem+1<<endl;
-		mytxtfile<<"*Solid section, elset="<<elemsetname<<", "<<"material="<<materialname<<endl;
-		mytxtfile<<"1.,"<<endl;
-	}
 	
 	// Copy rest of the file
 	getline(infile,line); // *Solid Section, elset=t, material=tt
@@ -54,13 +37,10 @@ void Prepare_simulation_file(int number_elems)
 	myfile<<line<<endl;
 	getline(infile,line); // *End Part
 	myfile<<line<<endl;
-	while (line!="1000., 0.3") {
+	while (line!=" 0.2, 0.167") {
     	myfile<<line<<endl;
-    	mytxtfile<<line<<endl;
     	getline(infile,line);
     }
-    mytxtfile<<line;
-    mytxtfile.close(); // close model text file
     
     while (line!="** OUTPUT REQUESTS") { // copy rest to initial job file
     	myfile<<line<<endl;
