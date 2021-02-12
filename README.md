@@ -1,6 +1,6 @@
 # cube_parametric_study
 Computer framework used in the cubic scaffold parametric study (initial mechanical signals and full regeneration)
-Here is the case of the full regeneration study.
+Here is the case of the initial mechanical signals study.
 
 **Instructions**
 * Put all files in the same folder as the Abaqus CAE file
