@@ -128,8 +128,11 @@ void Update_model(char lattice[LATTICE_X][LATTICE_Y][LATTICE_Z], vector< vector<
 		myfile<<Young_mod_elem[elem]<<","<<Poison_rat_elem[elem];
 	}
 	 
-	//*** Write to file rest of FEM infodelation
-	myfile<<"\n** BOUNDARY CONDITIONS"<<endl;
+	//*** Write to file rest of FEM info
+	myfile<<"\n*Material, name=scaffold_material"<<endl;
+	myfile<<"*Elastic"<<endl;
+	myfile<<"1000., 0.3"<<endl;
+	myfile<<"** BOUNDARY CONDITIONS"<<endl;
 	myfile<<"**"<<endl;
 	myfile<<"** Name: BC-1 Type: Symmetry/Antisymmetry/Encastre"<<endl;
 	myfile<<"*Boundary"<<endl;
