@@ -1,5 +1,5 @@
 # cube_parametric_study
-Computer framework used in the cubic scaffold parametric study (initial mechanical signals and full regeneration)
+Computer framework used in the cubic scaffold parametric study (initial mechanical signals) (paper currently under review). 
 Here is the case of the initial mechanical signals study.
 
 **Instructions**
